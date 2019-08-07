@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="card">
+      <h1 class="card-header"> <%= @restaurant.name %> </h1>
+        <div class="card-body">
+          <ul>
+            <li><%= @restaurant.category %></li>
+            <li><%= @restaurant.address %></li>
+            <li><%= @restaurant.phone_number %></li>
+            <ul>
+            <% @restaurant.reviews.each do |review| %>
+              <li><%= review.content %></li>
+              <li><%= review.rating %></li>
+              <% end %>
+            </ul>
+          </ul>
+
+            <%= link_to 'Retour', restaurants_path %> |
+            <%= link_to 'Editer', edit_restaurant_path(@restaurant) %> |
+            <%= link_to 'Leave us a comment', new_restaurant_review_path(@restaurant) %>
+      </div>
+  </div>
+</div>

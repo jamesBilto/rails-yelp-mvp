@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Yelp Restaurants</h1>
+
+  <div>
+    <%= link_to 'Créer un resto', new_restaurant_path, class: "btn btn-primary"%>
+  </div>
+
+  <div class="card">
+    <% @restaurants.each do |restaurant| %>
+
+      <h3 class="card-header"> <%= restaurant.name %> </h3>
+      <div class="card-body">
+
+      <%= link_to 'Show', restaurant_path(restaurant) %> |
+      <%= link_to 'Edit', edit_restaurant_path(restaurant) %> |
+      <%= link_to 'Delete', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+  </div>
+</div>
